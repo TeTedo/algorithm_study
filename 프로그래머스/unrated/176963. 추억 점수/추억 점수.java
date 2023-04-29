@@ -4,7 +4,7 @@ class Solution {
     public int[] solution(String[] name, int[] yearning, String[][] photo) {
         int[] answer = new int[photo.length];
         // HashMap에 점수 매핑
-        HashMap score = new HashMap<>();
+        HashMap<String,Integer> score = new HashMap<>();
         for(int i = 0; i < name.length; i++){
             score.put(name[i],yearning[i]);
         }
@@ -12,7 +12,7 @@ class Solution {
         for(int i = 0; i < photo.length; i++){
             for(int j = 0; j < photo[i].length; j++){
                 if(score.get(photo[i][j]) != null){
-                     answer[i] += (int)score.get(photo[i][j]);   
+                     answer[i] += score.get(photo[i][j]);   
                 }
             }
      
