@@ -6,12 +6,18 @@ class Main{
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         ){
             String str = br.readLine();
+            int index = 0;
             String temp = "";
+            int result = 1;
             for(int i = str.length()-1; i >= 0; i--){
-                temp += str.charAt(i);
+                if(str.charAt(index) != str.charAt(i)){
+                    result = 0;
+                    break;
+                }
+                index++;
             }
             
-            System.out.println(str.equals(temp) ? 1 : 0);
+            System.out.println(result);
         }
     }
 }
