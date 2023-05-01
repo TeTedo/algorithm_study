@@ -33,6 +33,7 @@ class Main{
                         bowls[j] = temp.poll();
                     }
                 }
+                temp.clear();
             }
             
             for(int i = 1; i <= len; i++){
