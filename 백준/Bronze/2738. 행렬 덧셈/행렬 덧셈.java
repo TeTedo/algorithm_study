@@ -9,19 +9,11 @@ class Main{
             int row = Integer.parseInt(condition.nextToken());
             int column = Integer.parseInt(condition.nextToken());
             int[][] matrix = new int[row][column];
-            for(int i = 0; i < row; i++){
+            for(int i = 0; i < row * 2; i++){
                 StringTokenizer str = new StringTokenizer(br.readLine());
                 for(int j = 0; j < column; j++){
                     int number = Integer.parseInt(str.nextToken());
-                    matrix[i][j] = number;
-                }
-            }
-            
-            for(int i = 0; i < row; i++){
-                StringTokenizer str = new StringTokenizer(br.readLine());
-                for(int j = 0; j < column; j++){
-                    int number = Integer.parseInt(str.nextToken());
-                    matrix[i][j] += number;
+                    matrix[i % row][j] += number;
                 }
             }
             
