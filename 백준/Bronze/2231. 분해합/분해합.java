@@ -7,21 +7,24 @@ class Main{
         ){
             String str = br.readLine();
             int number = Integer.parseInt(str);
-            boolean flag = false;
-            for(int i = 0; i < number; i++){
-                String[] strs = String.valueOf(i).split("");
+            int len = str.length();
+            int result = 0;
+            for(int i = number - (len * 9) ; i <= number; i++){
                 
-                int strSum = 0;
-                for(String x : strs){
-                    strSum += Integer.parseInt(x);
+                int sum = 0;
+                int num = i;
+                while(num != 0){
+                    sum += num % 10;
+                    num /= 10;
                 }
-                if(i + strSum == number) {
-                    System.out.println(i);   
-                    flag = true;
+                if(i + sum == number) {
+                    result = i;
                     break;
                 }
             }
-            if(!flag) System.out.println(0);
+            
+            
+            System.out.println(result);
         }
     }
 }
