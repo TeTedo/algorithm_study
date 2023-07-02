@@ -6,13 +6,16 @@ class Main {
         try(
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         ){
-            String line = "";
-            while((line = br.readLine()).charAt(0) != '0') {
+            
+            while(true) {
+                String line = br.readLine();
                 StringTokenizer st = new StringTokenizer(line);
                 int count = Integer.parseInt(st.nextToken());
                 int money = (int) Math.round(Double.parseDouble(st.nextToken()) * 100);
                 
-                HashMap<Integer,Integer> hashMap = new HashMap<>();
+                if(count == 0 && money == 0) break;
+
+                int[] cals = new int[money+1];
 
                 for(int i = 0; i < count; i++) {
                     String given = br.readLine();
@@ -24,12 +27,12 @@ class Main {
 
                     for(int j = price; j <= money; j++) {
                         int prev = j - price;
-                        int max = Math.max(hashMap.getOrDefault(prev,0) + cal, hashMap.getOrDefault(j, 0));
-                        hashMap.put(j, max);
+                        int max = Math.max(cals[prev] + cal, cals[j]);
+                        cals[j] = max;
                     }
                 }
 
-                System.out.println(hashMap.getOrDefault(money,0));
+                System.out.println(cals[money]);
             }
         }
     }
