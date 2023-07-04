@@ -38,7 +38,7 @@ class Main{
                             answer = Math.min(answer, index + num);
                             continue;
                         }
-                        int next = cur == 0 ? j : Integer.parseInt(String.valueOf(cur) + String.valueOf(j));
+                        int next = cur*10 + j;
                         if(next > 999999) continue; 
                         answer = Math.min(answer, index + Math.abs(next-num));
                         queue.offer(next);
