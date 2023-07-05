@@ -17,11 +17,14 @@ class Main{
                 hashMap.put(string.nextToken(), string.nextToken());
             }
 
+            StringBuilder sb = new StringBuilder();
+
             for(int i = 0; i < M; i++) {
                 String string = br.readLine();
-                System.out.println(hashMap.get(string));
+                sb.append(hashMap.get(string) + "\n");
             }
-            
+
+            System.out.println(sb);
         }
     }
 
