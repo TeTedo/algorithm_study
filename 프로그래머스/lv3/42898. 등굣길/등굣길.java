@@ -11,9 +11,6 @@ class Solution {
             visited[puddles[i][1]][puddles[i][0]] = 1;
         }
         
-        Queue<int[]> queue = new LinkedList<>();
-        queue.offer(new int[]{1,1});
-        
         int[][] dp = new int[n+1][m+1];
         dp[1][1] = 1;
         for(int i = 1; i < dp.length; i++) {
