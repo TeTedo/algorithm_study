@@ -1,33 +1,25 @@
 import java.util.*;
 
 class Solution {
-    int[] arr;
     int answer;
     int n;
-    String[] bracket = new String[]{"(",")"};
     
     public int solution(int n) {
         answer = 0;
         this.n = n;
-        Stack<String> stack = new Stack<>();
         
-        dfs(0,stack);
+        dfs(0,0);
         
         return answer;
     }
     
-    public void dfs(int D, Stack stack) {
+    public void dfs(int D, int cur) {
         if(D == n * 2) {
-            if(stack.size() == 0) answer++;
+            if(cur == 0) answer++;
         }
         else {
-            for(int i = 0; i < 2; i++) {
-                Stack temp = (Stack)stack.clone();
-                
-                if(i == 0) temp.push(bracket[i]);
-                if(i == 1 && temp.size() > 0 && temp.peek().equals("(")) temp.pop();
-                if(stack.size() != temp.size()) dfs(D+1, temp);
-            }
+            dfs(D+1, cur+1);
+            if(cur > 0) dfs(D+1, cur-1);
         }
     }
 }
