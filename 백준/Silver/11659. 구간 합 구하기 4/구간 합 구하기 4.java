@@ -16,12 +16,14 @@ class Main {
                 nums[i] = Integer.parseInt(st2.nextToken()) + nums[i-1];
             }
 
+            StringBuffer sb = new StringBuffer();
             for(int i = 0; i < count; i++) {
                 StringTokenizer st3 = new StringTokenizer(br.readLine());
                 int start = Integer.parseInt(st3.nextToken());
                 int end = Integer.parseInt(st3.nextToken());
-                System.out.println(nums[end] - nums[start-1]);
+                sb.append(nums[end] - nums[start-1]).append("\n");
             }
+            System.out.println(sb);
         }
     }
 }
